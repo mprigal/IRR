@@ -87,6 +87,7 @@ CREATE TABLE [dbo].[Program](
 	[APP_ID] [int]  NULL CONSTRAINT [FK_APP_ID] FOREIGN KEY([APP_ID])  REFERENCES [dbo].[Application] ([APP_ID]),
 	[Program_Name] [varchar](50)  NULL,
 	[Program_Description] [varchar](200) NULL,
+	[Addendum][varchar](50)  NULL,
 	[Version] [float]  NULL,
 	CONSTRAINT [PK_Program_ID] PRIMARY KEY CLUSTERED 
 (
@@ -135,7 +136,9 @@ CREATE TABLE [dbo].[Standards](
 	[Standard_Description] [varchar](200) NULL,
 	[Text][varchar](200) NULL,
 	[Version] [float]  NULL,
-	[RatingThreshold][varchar](50) NULL,
+	[WeightValue] [varchar](50) NULL,
+	[Weight] [char](1) NULL,
+--	[RatingThreshold][varchar](50) NULL,  -- according to Josh this is not needed
 	[Rating] [char](1) NULL,
 	[Program_ID] [int] NULL,
 	[Module_ID] [int] NULL,
@@ -172,6 +175,7 @@ CREATE TABLE [dbo].[EP](
 	[Prefix][varchar](10) NULL,
 	[EP_Name] [varchar](50) NOT NULL,
 	[EP_Description] [varchar](200) NULL,
+	[WeightValue] [varchar](50) NULL,
 	[Weight] [char](1) NULL,
 	[Rating] [char](1) NULL,
 	[DisplayOrder][int] Null,
